@@ -1,0 +1,10 @@
+.gitignore
+LICENSE
+PUBLICATION_ALLOWLIST.txt
+README.md
+examples/demo-output.txt
+signal_demo/__init__.py
+signal_demo/__main__.py
+signal_demo/core.py
+tests/test_demo.py
+tools/check_release.py

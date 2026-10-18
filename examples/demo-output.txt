@@ -1,0 +1,20 @@
+Synthetic Signal States | invented data | nonclinical
+600 samples at 50 Hz; duration 12 seconds
+Smoothed waveform (fixed display scale -1 to +1):
+==+==++++==+=++=++=+==++*%-:*#-:#%::##::##::##:-*+--*+=-=+*====+=+==*+--
+
+Start (s)  Spread  Mean step  State
+        0   0.021      0.027  quiet
+        1   0.024      0.027  quiet
+        2   0.023      0.019  quiet
+        3   0.025      0.022  quiet
+        4   0.539      0.095  oscillating
+        5   0.543      0.096  oscillating
+        6   0.542      0.095  oscillating
+        7   0.537      0.094  oscillating
+        8   0.536      0.696  varying
+        9   0.530      0.668  varying
+       10   0.507      0.643  varying
+       11   0.534      0.671  varying
+
+Illustrative labels only; no physiological or diagnostic interpretation.
