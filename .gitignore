@@ -11,3 +11,8 @@ build/
 Thumbs.db
 *.[vV][xX][pP]
 !/examples/synthetic.vxp
+output/
+.test-tmp/
+.pytest_cache/
+.coverage
+htmlcov/

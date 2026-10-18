@@ -1,7 +1,15 @@
+.gitattributes
 .gitignore
+CONTRIBUTING.md
 LICENSE
 PUBLICATION_ALLOWLIST.txt
 README.md
+THIRD_PARTY_NOTICES.md
+docs/PUBLICATION_SCOPE.md
+docs/RESEARCH_METHODS.md
+docs/VALIDATION.md
+docs/figures/breath-state-functions.png
+docs/results/research-metrics.json
 docs/vxp-processing.md
 examples/demo-output.txt
 examples/synthetic.vxp
@@ -9,7 +17,9 @@ examples/vxp-output.txt
 signal_demo/__init__.py
 signal_demo/__main__.py
 signal_demo/core.py
+signal_demo/research.py
 signal_demo/vxp.py
 tests/test_demo.py
+tests/test_research.py
 tests/test_vxp.py
 tools/check_release.py

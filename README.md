@@ -1,9 +1,33 @@
 # Synthetic Signal States
 
-A small, dependency-free Python project with a synthetic signal demonstration
-and independently implemented VXP text-processing methods: parsing, relative
-timing, amplitude scaling, validity handling, smoothing, and window statistics.
-It is an educational software example, not a medical application.
+A Python signal-processing portfolio project demonstrating strict VXP text
+parsing, relative timing, amplitude scaling, quality-aware smoothing, and
+window statistics. A separate, invented signal example illustrates simple
+descriptive state labels. The runtime uses Python's standard library only.
+
+Maintained by [Jorge Barbosa Pereira](https://github.com/jorge-barb-pereira).
+This independent edition uses entirely invented examples and makes no clinical
+validation or equipment-compatibility claim.
+
+## What this release demonstrates
+
+- A bounded VXP 1.6 reader that follows declared column order and rejects
+  malformed, non-finite, duplicate-time, and unsupported inputs.
+- Relative seconds and scaled amplitudes, without returning identifying headers.
+- Explicit invalid-sample handling and smoothing that does not bridge timing gaps.
+- Time-window statistics with valid/total counts and partial-window visibility.
+- Continuous cycle functions, state velocities, time-weighted RMS/L2 comparisons,
+  and explicit bin-disagreement histograms.
+- Deterministic invented fixtures, reproducible CLI examples, and 29 tests.
+- An explicit publication allowlist and documented limitations.
+
+The research module uses independently defined maximum/trough/next-maximum
+cycles and general time/amplitude normalization. It does not reproduce a private
+simulator or claim complete parity with another research implementation.
+See [research definitions](docs/RESEARCH_METHODS.md) and
+[publication scope](docs/PUBLICATION_SCOPE.md).
+
+![Independent continuous-function examples](docs/figures/breath-state-functions.png)
 
 ## Run
 
@@ -13,9 +37,18 @@ Requires Python 3.10 or newer. No installation or network access is needed.
 python -m signal_demo
 python -m signal_demo --vxp-demo
 python -m signal_demo --vxp examples/synthetic.vxp
+python -m signal_demo.research --output output/research
 python -m unittest discover -s tests -v
 python tools/check_release.py
 ```
+
+Run these commands from a Git checkout. No account, network connection, package
+installation, hardware, or original recording is required. The optional local
+reader is demonstrated with the included invented fixture, not clinical data.
+
+To regenerate the optional figure, install Matplotlib from its official package
+distribution, then run `python -m signal_demo.research --output output/research --plot`.
+The numeric research report and test suite require no plotting dependency.
 
 The command generates twelve seconds of invented samples in memory, prints an
 ASCII waveform, and reports one-second windows as `quiet`, `oscillating`, or
@@ -41,6 +74,23 @@ Sample rate, shapes, durations, noise, and cutoffs are invented teaching choices
 They are not fitted to measurements or intended to represent a real population,
 device, facility, or operating environment. The states have no physiological or
 diagnostic meaning. This project makes no clinical validation claim.
+
+## Repository map
+
+| Path | Purpose |
+| --- | --- |
+| `signal_demo/core.py` | Invented signal generator, smoothing, features and descriptive labels |
+| `signal_demo/vxp.py` | Bounded VXP subset reader and quality-aware numeric processing |
+| `signal_demo/__main__.py` | Offline demos and explicitly selected local-file CLI |
+| `signal_demo/research.py` | Continuous cycle functions, derivatives, RMS/L2 and bin comparisons |
+| `examples/` | Invented VXP fixture and reviewed command output |
+| `tests/` | Numerical checks, malformed-input rejection and CLI regressions |
+| `docs/` | Format reference, scope, validation and limitations |
+| `tools/check_release.py` | Explicit public-file boundary check |
+
+Read the [VXP method reference](docs/vxp-processing.md),
+[validation record](docs/VALIDATION.md), and
+[contributing guide](CONTRIBUTING.md) for interpretation and maintenance details.
 
 ## Scope and provenance
 
@@ -74,6 +124,9 @@ package-build configuration, external integrations, or upload workflows are
 included. Review every file, the staged diff, and the intended commit before
 publication; an allowlist and text checks do not establish redistribution rights
 or guarantee confidentiality. Any changed release requires a new review.
+
+The sole included PNG is generated from the built-in invented research examples.
+Its pixels and metadata require review in addition to text and file checks.
 
 ## License
 

@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "synthetic_only": true,
+  "difference_convention": "phase minus amplitude",
+  "cases": {
+    "balanced": {
+      "duration_seconds": 6.0,
+      "covered_seconds": 6.0,
+      "coverage_fraction": 1.0,
+      "mean_signed_difference": 1.2032385360063088e-17,
+      "rms_difference": 0.03771601897952519,
+      "l2_difference": 0.09238500162896261,
+      "bins": 10,
+      "compared_samples": 400,
+      "disagreeing_samples": 108,
+      "bin_disagreement_fraction": 0.27,
+      "phase_bin_counts": [
+        41,
+        40,
+        39,
+        41,
+        39,
+        40,
+        40,
+        41,
+        39,
+        40
+      ],
+      "amplitude_bin_counts": [
+        60,
+        28,
+        25,
+        28,
+        59,
+        60,
+        28,
+        25,
+        28,
+        59
+      ],
+      "bin_offset_counts": {
+        "0": 292,
+        "1": 54,
+        "-1": 54
+      },
+      "amplitude_calibration": [
+        -1.0,
+        1.0
+      ]
+    },
+    "asymmetric": {
+      "duration_seconds": 6.0,
+      "covered_seconds": 6.0,
+      "coverage_fraction": 1.0,
+      "mean_signed_difference": -0.075,
+      "rms_difference": 0.09007173662992915,
+      "l2_difference": 0.2206297949896793,
+      "bins": 10,
+      "compared_samples": 400,
+      "disagreeing_samples": 258,
+      "bin_disagreement_fraction": 0.645,
+      "phase_bin_counts": [
+        41,
+        40,
+        39,
+        41,
+        39,
+        40,
+        40,
+        41,
+        39,
+        40
+      ],
+      "amplitude_bin_counts": [
+        42,
+        20,
+        17,
+        20,
+        41,
+        77,
+        37,
+        33,
+        37,
+        76
+      ],
+      "bin_offset_counts": {
+        "0": 142,
+        "1": 1,
+        "-1": 213,
+        "-2": 44
+      },
+      "amplitude_calibration": [
+        -1.0,
+        1.0
+      ]
+    },
+    "valley_plateau": {
+      "duration_seconds": 6.0,
+      "covered_seconds": 6.0,
+      "coverage_fraction": 1.0,
+      "mean_signed_difference": -0.05874999999999991,
+      "rms_difference": 0.08890735897342905,
+      "l2_difference": 0.2177776638633564,
+      "bins": 10,
+      "compared_samples": 400,
+      "disagreeing_samples": 197,
+      "bin_disagreement_fraction": 0.4925,
+      "phase_bin_counts": [
+        41,
+        40,
+        39,
+        41,
+        39,
+        40,
+        40,
+        41,
+        39,
+        40
+      ],
+      "amplitude_bin_counts": [
+        38,
+        17,
+        17,
+        17,
+        37,
+        119,
+        31,
+        29,
+        31,
+        64
+      ],
+      "bin_offset_counts": {
+        "0": 203,
+        "-1": 117,
+        "-2": 75,
+        "1": 5
+      },
+      "amplitude_calibration": [
+        -1.0,
+        1.0
+      ]
+    }
+  }
+}
