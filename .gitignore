@@ -9,3 +9,5 @@ build/
 *.egg-info/
 .DS_Store
 Thumbs.db
+*.[vV][xX][pP]
+!/examples/synthetic.vxp

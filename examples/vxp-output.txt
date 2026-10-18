@@ -1,0 +1,19 @@
+VXP numeric processing | descriptive statistics only | nonclinical
+Samples: 600; valid: 595
+Smoothed valid samples: 595
+Header identifiers, acquisition dates, phase and digital fields are omitted.
+Numeric traces and summaries can still be sensitive; this is not anonymization.
+
+Start (s)  Rows  Valid  Mean (mm)  Spread (mm)  Range (mm)  Mean step (mm)
+      0.0    50     50  -0.0062  0.0215  0.0751  0.0268
+      1.0    50     50  0.0014  0.0236  0.0776  0.0272
+      2.0    50     45  -0.0081  0.0233  0.0794  0.0191
+      3.0    50     50  0.0030  0.0247  0.0772  0.0223
+      4.0    50     50  0.1710  0.5393  1.6063  0.0951
+      5.0    50     50  -0.1688  0.5426  1.6159  0.0963
+      6.0    50     50  0.1685  0.5415  1.6137  0.0952
+      7.0    50     50  -0.1718  0.5369  1.5854  0.0940
+      8.0    50     50  -0.0379  0.5360  1.8616  0.6963
+      9.0    50     50  0.0128  0.5302  1.6952  0.6685
+     10.0    50     50  -0.0151  0.5073  1.8719  0.6427
+     11.0    50     50  0.0171  0.5340  1.7617  0.6712

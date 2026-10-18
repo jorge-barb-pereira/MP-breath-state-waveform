@@ -2,9 +2,14 @@
 LICENSE
 PUBLICATION_ALLOWLIST.txt
 README.md
+docs/vxp-processing.md
 examples/demo-output.txt
+examples/synthetic.vxp
+examples/vxp-output.txt
 signal_demo/__init__.py
 signal_demo/__main__.py
 signal_demo/core.py
+signal_demo/vxp.py
 tests/test_demo.py
+tests/test_vxp.py
 tools/check_release.py
