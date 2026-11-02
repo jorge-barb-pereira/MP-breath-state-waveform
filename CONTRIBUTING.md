@@ -15,10 +15,20 @@ python -m signal_demo --vxp examples/synthetic.vxp
 python tools/check_release.py
 ```
 
+For browser-laboratory changes, also use Node.js 22 or newer (no dependency
+installation is needed):
+
+```sh
+npm test
+npm run check:release
+```
+
 The release checker compares Git's tracked inventory with the explicit
 allowlist. A contributor must still inspect the full diff and file contents.
 It does not validate staged blobs, historical commits, image pixels, packages,
 or confidentiality. Do not treat passing tests as clinical validation.
+The additional Node release checker checks text patterns and local Git path
+history; it does not replace content review of historical blobs or image pixels.
 
 ## Input and disclosure boundaries
 

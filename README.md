@@ -1,13 +1,43 @@
-# Synthetic Signal States
+# Breath State Concept
 
-A Python signal-processing portfolio project demonstrating strict VXP text
-parsing, relative timing, amplitude scaling, quality-aware smoothing, and
-window statistics. A separate, invented signal example illustrates simple
-descriptive state labels. The runtime uses Python's standard library only.
+A scientific-computing portfolio with an offline **Breath State Laboratory**,
+continuous state-comparison methods and a limited Python VXP-processing toolkit.
+The browser laboratory generates entirely invented respiratory waveforms;
+the Python tools demonstrate strict parsing, relative timing, amplitude scaling,
+quality-aware smoothing and window statistics. The two runtimes are independent:
+the browser app has no package dependencies, and the Python tools use the standard
+library except for optional plotting.
 
 Maintained by [Jorge Barbosa Pereira](https://github.com/jorge-barb-pereira).
 This independent edition uses entirely invented examples and makes no clinical
 validation or equipment-compatibility claim.
+
+## Interactive Breath State Laboratory
+
+Open `laboratory/index.html` in a modern browser. Alternatively, serve only that
+directory locally:
+
+```sh
+python -m http.server 8080 --bind 127.0.0.1 --directory laboratory
+```
+
+Open `http://127.0.0.1:8080/`. Adjust cycle timing, expiration share, excursion,
+bin count and an end-expiratory pause. Compare uniform phase, branch-balanced
+phase and amplitude state, then inspect circular disagreement and time-in-bin
+occupancy. CSV export contains generated synthetic samples only.
+
+This independently written laboratory has no recording import, external calls,
+telemetry or persistent browser storage. It is an educational demonstration,
+not a reproduction of a private application or a clinical acquisition tool.
+See [laboratory equations](docs/LABORATORY_METHODS.md),
+[verification](docs/LABORATORY_VALIDATION.md) and
+[release scope](docs/LABORATORY_PUBLICATION.md).
+
+**Metric conventions differ deliberately.** The Python research module integrates
+the signed linear phase-minus-amplitude difference on a selected cycle. The
+browser laboratory reports sampled circular distances on periodic synthetic
+cycles. Their RMS values and maxima are not interchangeable; the documentation
+states each sampling, boundary and integration convention explicitly.
 
 ## What this release demonstrates
 
@@ -19,6 +49,8 @@ validation or equipment-compatibility claim.
 - Continuous cycle functions, state velocities, time-weighted RMS/L2 comparisons,
   and explicit bin-disagreement histograms.
 - Deterministic invented fixtures, reproducible CLI examples, and 29 tests.
+- An offline interactive browser laboratory with 16 additional numerical and
+  release tests, alongside the 29 Python tests.
 - An explicit publication allowlist and documented limitations.
 
 The research module uses independently defined maximum/trough/next-maximum
@@ -79,14 +111,28 @@ diagnostic meaning. This project makes no clinical validation claim.
 
 | Path | Purpose |
 | --- | --- |
+| `laboratory/` | Offline synthetic respiratory-waveform and state explorer |
 | `signal_demo/core.py` | Invented signal generator, smoothing, features and descriptive labels |
 | `signal_demo/vxp.py` | Bounded VXP subset reader and quality-aware numeric processing |
 | `signal_demo/__main__.py` | Offline demos and explicitly selected local-file CLI |
 | `signal_demo/research.py` | Continuous cycle functions, derivatives, RMS/L2 and bin comparisons |
 | `examples/` | Invented VXP fixture and reviewed command output |
 | `tests/` | Numerical checks, malformed-input rejection and CLI regressions |
+| `tests/browser/` | Browser-model mathematics and offline release checks |
 | `docs/` | Format reference, scope, validation and limitations |
 | `tools/check_release.py` | Explicit public-file boundary check |
+| `tools/check_laboratory.cjs` | Text patterns, allowlist and local Git-path/history checks |
+
+Browser checks require Node.js 22 or newer, with no dependency installation:
+
+```sh
+npm test
+npm run check:release
+```
+
+GitHub Actions is configured to run the Python and browser checks in separate
+jobs. It uses invented inputs only and uploads no generated artifacts. Local
+verification is recorded separately from any future online CI result.
 
 Read the [VXP method reference](docs/vxp-processing.md),
 [validation record](docs/VALIDATION.md), and
@@ -104,8 +150,10 @@ There are no external datasets or third-party code dependencies to redistribute.
 The default CLI uses invented samples only. The optional `--vxp LOCAL_FILE`
 command reads one explicitly selected local text file and prints a numeric
 summary. Metadata removal does not anonymize numeric traces or their summaries.
-Use only separately approved inputs. No models, network, or database integrations
-are present, and the application writes no result files.
+Use only separately approved inputs. No trained models, network or database
+integrations are present. The signal/VXP CLI paths print summaries; the research
+CLI writes invented numeric results and optional plots under ignored `output/`.
+The browser can download generated synthetic samples only.
 
 The dimensionless demo rejects incomplete final analysis windows. VXP windows
 use timestamps and retain partial windows with counts, excluding invalid rows
@@ -119,14 +167,19 @@ rejects additional non-ignored files, symlinks, and mismatches between the
 allowlist and Git's tracked files. It does not prove confidentiality or inspect
 historical commits, staged blob contents, packages, or remote artifacts.
 
-Python bytecode caches and common local configuration files are ignored. No CI,
-package-build configuration, external integrations, or upload workflows are
-included. Review every file, the staged diff, and the intended commit before
+Python bytecode caches and common local configuration files are ignored. The
+synthetic-only CI workflow includes no artifact-upload or publishing step. No
+package-build or external runtime integration is configured. Review every file,
+the staged diff, and the intended commit before
 publication; an allowlist and text checks do not establish redistribution rights
 or guarantee confidentiality. Any changed release requires a new review.
 
 The sole included PNG is generated from the built-in invented research examples.
 Its pixels and metadata require review in addition to text and file checks.
+The browser release checker also verifies that locally tracked and historical
+paths are allowlisted; this does not inspect every historical file's content or
+prove confidentiality. The Python release checker validates the existing PNG
+metadata and regenerates the invented research-report values for comparison.
 
 ## License
 

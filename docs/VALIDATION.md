@@ -6,7 +6,7 @@ clinical integrations, models, macros, or database connections.
 
 ## Automated coverage
 
-The suite contains 29 tests covering:
+The Python suite contains 29 tests covering:
 
 - Deterministic finite signal generation and simple descriptive state labels.
 - Moving-average edge normalization, constant preservation and variation reduction.
@@ -54,10 +54,25 @@ contains only neutral software/description fields and pixel resolution.
 
 Local validation uses Python 3.12.14 on Windows. Python 3.10 is the documented
 minimum, but separate testing of every supported interpreter/platform has not
-been performed. No CI run is claimed, and no CI, package build, release upload,
-or artifact publishing workflow is configured.
+been performed. A synthetic-only CI workflow is now configured for Python
+3.11/3.12 and Node.js 22/24. Local checks do not establish a successful online CI
+run. No package build, release upload or artifact-publishing step is configured.
 
 These checks establish behavior on invented inputs only. They do not establish
 clinical validity, real-device compatibility, CRC integrity, mathematical parity
 with another implementation, or confidentiality. The file allowlist does not
 inspect history or artifact contents; those require manual release review.
+
+## Interactive laboratory extension
+
+The browser laboratory adds 16 Node.js tests for its analytic waveform, continuous
+joins, derivatives, normalized/circular states, sampled metrics, repeatability,
+resource limits, offline assets and release boundaries. Its local browser review
+is described in [laboratory validation](LABORATORY_VALIDATION.md). These tests are
+separate from the 29 Python tests and require no dependency installation.
+
+Run `npm test` and `npm run check:release` from the repository root. The Node
+release checker inspects text patterns and local tracked/historical paths; the
+Python release checker validates the existing PNG metadata and synthetic report.
+Neither substitutes for an exact-file, staged-content and publication-rights
+review.

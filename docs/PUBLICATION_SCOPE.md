@@ -18,6 +18,7 @@ for publication.
 | Verification | Invented fixture, reviewed text output and automated tests |
 | Research functions | Continuous single/dual phase, branch-dependent amplitude progress and state velocity |
 | Comparisons | Time-weighted RMS, L2, signed differences, bin counts and disagreements |
+| Browser laboratory | Invented periodic half-cosine motion, pause/asymmetry controls, circular state comparisons and duration occupancy |
 
 The VXP format reference is attributed in [the method documentation](vxp-processing.md).
 No third-party parser code, original records, or professional implementation was
@@ -29,7 +30,7 @@ it does not license the referenced manufacturer manual or any original project.
 This release documents its own continuous-function conventions, using public
 time/amplitude sorting concepts and elementary arithmetic. It does not copy a
 private hybrid kinematic engine, clinical tier thresholds, scanner acquisition
-rules, reconstruction implementation, or an interactive research dashboard.
+rules, reconstruction implementation, or a private interactive dashboard.
 Their absence is an explicit scope limit, not evidence that those capabilities
 are unnecessary. See [research methods](RESEARCH_METHODS.md).
 
@@ -50,3 +51,10 @@ Future methods must have explicit definitions, checked boundary behavior, tests
 using invented inputs, suitable provenance, and resolved publication rights.
 New files, figures, builds, workflows and material code changes require a fresh
 release review and owner approval before publication.
+
+The independently written [browser laboratory](../laboratory/index.html) is a
+separate synthetic teaching interface. It imports no recordings and shares no
+runtime with the optional Python VXP reader. Its equations, circular metrics,
+sample-grid assumptions and exclusions are described in
+[laboratory methods](LABORATORY_METHODS.md) and
+[laboratory publication scope](LABORATORY_PUBLICATION.md).

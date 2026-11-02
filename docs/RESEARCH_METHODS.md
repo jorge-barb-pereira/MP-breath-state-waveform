@@ -99,3 +99,18 @@ rotational-window rules, proprietary workflows and original data are excluded.
 Adding those requires separate rights assessment, precise definitions, tests,
 and approval of a newly reviewed release. No clinical superiority, patient
 benefit, device compatibility or exhaustive research reproduction is claimed.
+
+## Relationship to the browser laboratory
+
+The [synthetic browser laboratory](LABORATORY_METHODS.md) uses the same general
+maximum-to-minimum-to-maximum orientation and explicit direction-dependent
+amplitude normalization. Its invented pause ends at the inspiration transition;
+branch-balanced phase assigns that transition state 0.5. There is no automatic
+clinical anchor detection or real-recording import.
+
+The browser computes circular sampled distances and duration fractions on a
+uniform periodic grid. This Python module instead integrates signed linear
+differences on a selected cycle and keeps a left-limit closing endpoint.
+The numerical RMS definitions, endpoint rules and integration schemes differ.
+Compare results only after accounting for these conventions; neither component
+is a validation reference for a private framework.

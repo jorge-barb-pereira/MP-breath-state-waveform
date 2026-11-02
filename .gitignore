@@ -16,3 +16,11 @@ output/
 .pytest_cache/
 .coverage
 htmlcov/
+node_modules/
+*.csv
+*.dcm
+*.dicom
+*.pkl
+*.pickle
+*.sqlite*
+*.db

@@ -1,0 +1,14 @@
+{
+  "name": "breath-state-laboratory",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline synthetic respiratory-waveform and state-assignment laboratory for research education",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test tests/browser/*.test.cjs",
+    "check:release": "node tools/check_laboratory.cjs"
+  }
+}

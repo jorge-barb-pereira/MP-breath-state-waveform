@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Breath State Laboratory | Synthetic signal explorer</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="src/model.js" defer></script>
+  <script src="src/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="#main"><span class="brand-mark" aria-hidden="true">∿</span> Breath State Laboratory</a><span class="status"><span aria-hidden="true">●</span> Offline · synthetic only</span></header>
+  <main id="main">
+    <section class="intro"><p class="eyebrow">SCIENTIFIC COMPUTING / INTERACTIVE STUDY</p><h1>One breath.<br>Three ways to describe it.</h1><p class="lede">Explore how timing, asymmetry and an end-expiratory pause change respiratory-state assignments. Every point is generated here from a mathematical model.</p><div class="scope-note"><strong>Research & education.</strong> State disagreement is a mathematical comparison, not a measure of image quality, patient motion or clinical risk.</div></section>
+    <section class="workspace" aria-label="Synthetic experiment">
+      <aside class="panel controls"><div class="panel-heading"><h2>Shape the signal</h2><button id="reset" class="text-button" type="button">Reset</button></div><p class="muted">All distances and durations below are invented.</p>
+        <div class="presets" aria-label="Example scenarios"><button type="button" data-preset="balanced">Balanced</button><button type="button" data-preset="asymmetric">Asymmetric</button><button type="button" data-preset="pause">With pause</button></div>
+        <label for="period">Cycle period <output for="period" id="period-value"></output></label><input id="period" type="range" min="1" max="15" step="0.1" value="5">
+        <label for="expiration">Expiration share <output for="expiration" id="expiration-value"></output></label><input id="expiration" type="range" min="25" max="85" step="1" value="65">
+        <label for="pause">Pause within expiration <output for="pause" id="pause-value"></output></label><input id="pause" type="range" min="0" max="50" step="1" value="15">
+        <label for="amplitude">Peak-to-trough excursion <output for="amplitude" id="amplitude-value"></output></label><input id="amplitude" type="range" min="1" max="30" step="0.5" value="10">
+        <label for="bins">State bins <output for="bins" id="bins-value"></output></label><input id="bins" type="range" min="4" max="20" step="1" value="10">
+        <div class="timing" id="timing"></div><p class="muted small">Three cycles · 240 samples per cycle. The pause occupies the end of expiration; it does not lengthen the cycle.</p>
+        <button id="download" class="primary" type="button">Download synthetic CSV <span aria-hidden="true">↗</span></button><p class="small muted">No upload, file import, telemetry or browser storage.</p>
+      </aside>
+      <div class="analysis"><section class="panel"><div class="panel-heading"><div><p class="eyebrow">01 / GENERATED MOTION</p><h2>Displacement over time</h2></div><span class="chip">Invented signal</span></div><canvas id="waveform" height="230" role="img" aria-label="Synthetic displacement in millimetres over time in seconds"></canvas><div class="legend"><span class="dot motion">Synthetic displacement</span><span class="muted">Smooth half-cosines with an optional pause</span></div></section>
+        <section class="panel"><div class="panel-heading"><div><p class="eyebrow">02 / STATE ASSIGNMENT</p><h2>Same signal, different coordinates</h2></div></div><canvas id="states" height="230" role="img" aria-label="Uniform phase, branch-balanced phase and amplitude state from zero to one"></canvas><div class="legend"><span class="dot uniform">Uniform phase</span><span class="dot balanced">Branch-balanced phase</span><span class="dot amplitude">Amplitude state</span></div></section>
+      </div>
+    </section>
+    <section class="results" aria-label="Comparison results"><div class="result-card"><p>Circular RMS disagreement</p><strong id="rms">—</strong><span>Uniform phase vs amplitude state</span></div><div class="result-card"><p>Maximum circular disagreement</p><strong id="maximum">—</strong><span>Sampled maximum; not a continuous bound</span></div><div class="result-card"><p>Different bin assignments</p><strong id="mismatch">—</strong><span>Exact bin comparison on this sampled grid</span></div><div class="result-card"><p>Branch-balanced RMS</p><strong id="balanced-rms">—</strong><span>Branch-balanced phase vs amplitude state</span></div></section>
+    <section class="panel occupancy"><div class="panel-heading"><div><p class="eyebrow">03 / TIME IN STATE</p><h2>How the samples fill each bin</h2></div><span class="chip">Fraction of sampled duration</span></div><canvas id="occupancy" height="230" role="img" aria-label="Grouped bars showing the fraction of uniformly sampled time assigned to each state bin"></canvas><div class="legend"><span class="dot uniform">Uniform phase</span><span class="dot balanced">Branch-balanced phase</span><span class="dot amplitude">Amplitude state</span></div></section>
+    <section class="explanation"><div><p class="eyebrow">READING THE EXPERIMENT</p><h2>Disagreement is a result,<br>not a diagnosis.</h2></div><div><p><strong>Uniform phase</strong> advances at a constant rate through each whole cycle. <strong>Branch-balanced phase</strong> allocates half the state range to expiration and half to inspiration. <strong>Amplitude state</strong> progresses with displacement and direction, using the known extrema of this invented cycle.</p><p>The cycle begins at maximum displacement, at the start of expiration. Its minimum marks the inspiration transition. State 1 wraps to state 0; circular distances account for that wrap. A pause can give one state a large occupancy without indicating a software error.</p><p>These are explicit educational definitions. They do not reproduce a scanner's proprietary sorting, infer internal anatomy, reconstruct images or calculate safe acquisition settings.</p></div></section>
+    <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+    <noscript><p>This offline demonstration needs JavaScript to generate its synthetic signal.</p></noscript>
+  </main><footer>Breath State Laboratory · Independent synthetic portfolio edition · 2026<span>Local computation. No clinical inputs.</span></footer>
+</body>
+</html>
