@@ -42,6 +42,6 @@ function inspect(root = ROOT, checkGit = true) {
 
 module.exports = { inspect };
 if (require.main === module) {
-  try { console.log(`PASS: ${inspect().files} allowlisted files; text patterns and tracked paths/history checked; run Python release check for PNG metadata`); }
+  try { console.log(`PASS: ${inspect().files} allowlisted files; text patterns and tracked paths/history checked; run Python release check for PNG/SVG structure and synthetic reports`); }
   catch (error) { console.error(error.message); process.exitCode = 1; }
 }

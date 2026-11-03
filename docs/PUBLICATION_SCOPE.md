@@ -19,6 +19,7 @@ for publication.
 | Research functions | Continuous single/dual phase, branch-dependent amplitude progress and state velocity |
 | Comparisons | Time-weighted RMS, L2, signed differences, bin counts and disagreements |
 | Browser laboratory | Invented periodic half-cosine motion, pause/asymmetry controls, circular state comparisons and duration occupancy |
+| Sorting study | Twenty synthetic comparisons, centred ten-bin sorting, circular scores, descriptive regimes and independently generated SVG figures |
 
 The VXP format reference is attributed in [the method documentation](vxp-processing.md).
 No third-party parser code, original records, or professional implementation was

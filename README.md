@@ -1,4 +1,4 @@
-# Breath State Concept
+# Breath State Waveform
 
 A scientific-computing portfolio with an offline **Breath State Laboratory**,
 continuous state-comparison methods and a limited Python VXP-processing toolkit.
@@ -11,6 +11,38 @@ library except for optional plotting.
 Maintained by [Jorge Barbosa Pereira](https://github.com/jorge-barb-pereira).
 This independent edition uses entirely invented examples and makes no clinical
 validation or equipment-compatibility claim.
+
+## Ten-bin sorting study results
+
+The [complete results table](docs/SORTING_RESULTS.md) contains **20 synthetic
+comparisons on 12 constructed cycles**, with continuous circular RMSD, maximum
+distance, exact ten-bin mismatch, occupancy and time in each bin-width regime.
+The [formal definitions](docs/SORTING_METHODS.md) distinguish pointwise shading
+from the user-defined whole-cycle RMSD classification.
+
+| Continuous state analysis | Discrete ten-bin analysis |
+| --- | --- |
+| [Canonical cycles](docs/figures/sorting-continuous.svg) | [Canonical cycles](docs/figures/sorting-discrete.svg) |
+| [Constructed limiting families](docs/figures/extremes-continuous.svg) | [Constructed limiting families](docs/figures/extremes-discrete.svg) |
+
+Linear asymmetric branches agree exactly under dual-phase normalization, but
+half-cosine branches retain an RMSD of approximately 0.037719. The latter
+receives the descriptive label “Similar Processing” while about 34.76% of
+sample times still have different centred-bin identities. Continuous proximity
+and exact bin agreement answer different questions. These are numerical
+results on invented signals, not clinical or image-quality evidence.
+
+The [machine-readable report](docs/results/sorting-study.json) records the
+sample grid, bin convention, method and all per-case values. To regenerate it:
+
+```sh
+python tools/generate_sorting_study.py
+# Optional, with NumPy and Matplotlib installed:
+python tools/generate_sorting_study.py --plot
+```
+
+Generated files stay under ignored `output/sorting-study/`; only reviewed
+synthetic results and independently written documentation are included here.
 
 ## Interactive Breath State Laboratory
 
@@ -48,9 +80,10 @@ states each sampling, boundary and integration convention explicitly.
 - Time-window statistics with valid/total counts and partial-window visibility.
 - Continuous cycle functions, state velocities, time-weighted RMS/L2 comparisons,
   and explicit bin-disagreement histograms.
-- Deterministic invented fixtures, reproducible CLI examples, and 29 tests.
-- An offline interactive browser laboratory with 16 additional numerical and
-  release tests, alongside the 29 Python tests.
+- Deterministic invented fixtures, reproducible CLI examples and analytic checks.
+- An offline interactive browser laboratory with numerical and release tests.
+- A centred circular ten-bin study with continuous and discrete figure plates,
+  explicit classifications and a reproducible machine-readable report.
 - An explicit publication allowlist and documented limitations.
 
 The research module uses independently defined maximum/trough/next-maximum
@@ -116,6 +149,8 @@ diagnostic meaning. This project makes no clinical validation claim.
 | `signal_demo/vxp.py` | Bounded VXP subset reader and quality-aware numeric processing |
 | `signal_demo/__main__.py` | Offline demos and explicitly selected local-file CLI |
 | `signal_demo/research.py` | Continuous cycle functions, derivatives, RMS/L2 and bin comparisons |
+| `signal_demo/sorting.py` | Centred circular bins, synthetic families, exact/numerical sorting scores |
+| `tools/generate_sorting_study.py` | Reproducible study report and optional synthetic figure plates |
 | `examples/` | Invented VXP fixture and reviewed command output |
 | `tests/` | Numerical checks, malformed-input rejection and CLI regressions |
 | `tests/browser/` | Browser-model mathematics and offline release checks |
@@ -174,12 +209,14 @@ the staged diff, and the intended commit before
 publication; an allowlist and text checks do not establish redistribution rights
 or guarantee confidentiality. Any changed release requires a new review.
 
-The sole included PNG is generated from the built-in invented research examples.
-Its pixels and metadata require review in addition to text and file checks.
+The included PNG is generated from the built-in invented research examples.
+The SVG figure plates are independently generated from the synthetic sorting
+fixtures. Their content and metadata require review in addition to file checks.
 The browser release checker also verifies that locally tracked and historical
 paths are allowlisted; this does not inspect every historical file's content or
 prove confidentiality. The Python release checker validates the existing PNG
-metadata and regenerates the invented research-report values for comparison.
+metadata, checks SVG structure and regenerates both synthetic numeric reports
+for comparison.
 
 ## License
 

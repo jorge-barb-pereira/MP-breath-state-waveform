@@ -2,10 +2,12 @@
 
 from pathlib import Path
 import json
+import re
 import struct
 import subprocess
 import sys
 import zlib
+import xml.etree.ElementTree as ET
 
 
 def check_preview(data):
@@ -62,6 +64,72 @@ def check_research_report(root):
         raise ValueError('Research report differs from the invented generator.')
 
 
+def check_sorting_report(root):
+    sys.path.insert(0, str(root))
+    from signal_demo.sorting import study_report
+    from tools.generate_sorting_study import markdown
+    expected = study_report()
+    actual = json.loads((root / 'docs/results/sorting-study.json').read_text(encoding='utf-8'))
+
+    def normalized(value):
+        if isinstance(value, float):
+            return round(value, 10)
+        if isinstance(value, list):
+            return [normalized(item) for item in value]
+        if isinstance(value, dict):
+            return {key: normalized(item) for key, item in value.items()}
+        return value
+
+    if normalized(actual) != normalized(expected):
+        raise ValueError('Sorting report differs from the independent synthetic generator.')
+    saved_markdown = (root / 'docs/SORTING_RESULTS.md').read_text(encoding='utf-8')
+    if saved_markdown != markdown(expected):
+        raise ValueError('Readable sorting results differ from the numeric report.')
+
+
+def check_sorting_svg(data):
+    """Allow only passive plotting elements and fixed nonidentifying metadata."""
+    if len(data) > 1_000_000 or b'<!ENTITY' in data.upper():
+        raise ValueError('Unsupported SVG structure.')
+    root = ET.fromstring(data)
+    svg = '{http://www.w3.org/2000/svg}'
+    dc = '{http://purl.org/dc/elements/1.1/}'
+    rdf = '{http://www.w3.org/1999/02/22-rdf-syntax-ns#}'
+    cc = '{http://creativecommons.org/ns#}'
+    tags = {svg + name for name in ('svg', 'metadata', 'defs', 'style', 'g',
+                                    'path', 'clipPath', 'use', 'rect')}
+    tags.update({rdf + 'RDF', cc + 'Work', cc + 'Agent', dc + 'type',
+                 dc + 'format', dc + 'creator', dc + 'title'})
+    if root.tag != svg + 'svg' or root.get('viewBox') != '0 0 518.4 612':
+        raise ValueError('Unexpected synthetic figure dimensions.')
+    titles = [item.text for item in root.iter(dc + 'title')]
+    formats = [item.text for item in root.iter(dc + 'format')]
+    if titles != ['Breath State Laboratory synthetic study'] or formats != ['image/svg+xml']:
+        raise ValueError('Unexpected synthetic figure metadata.')
+    for item in root.iter():
+        if item.tag not in tags:
+            raise ValueError('Unsupported SVG element.')
+        for key, value in item.attrib.items():
+            local = key.rsplit('}', 1)[-1].lower()
+            if local.startswith('on') or local in ('src', 'base'):
+                raise ValueError('Active SVG attributes are not permitted.')
+            if local == 'href' and not value.startswith('#'):
+                raise ValueError('External SVG resources are not permitted.')
+            if any(not match.group(1).strip().strip('\"\'').startswith('#')
+                   for match in re.finditer(r'url\(([^)]*)\)', value, re.IGNORECASE)):
+                raise ValueError('External SVG paint resources are not permitted.')
+            if local == 'resource' and not (
+                item.tag == dc + 'type' and value == 'http://purl.org/dc/dcmitype/StillImage'
+            ):
+                raise ValueError('Unexpected SVG resource metadata.')
+        style = item.text if item.tag == svg + 'style' else item.get('style', '')
+        if style and ('@import' in style.lower() or any(
+            not match.group(1).strip().strip('\"\'').startswith('#')
+            for match in re.finditer(r'url\(([^)]*)\)', style, re.IGNORECASE)
+        )):
+            raise ValueError('External SVG styling is not permitted.')
+
+
 def main() -> int:
     root = Path(__file__).resolve().parents[1]
     entries = (root / "PUBLICATION_ALLOWLIST.txt").read_text(encoding="utf-8").splitlines()
@@ -96,17 +164,20 @@ def main() -> int:
         try:
             if entry == 'docs/figures/breath-state-functions.png':
                 check_preview(path.read_bytes())
+            elif entry.startswith('docs/figures/') and entry.endswith('.svg'):
+                check_sorting_svg(path.read_bytes())
             else:
                 path.read_text(encoding="utf-8")
-        except (UnicodeError, OSError, ValueError):
+        except (UnicodeError, OSError, ValueError, ET.ParseError):
             print("FAIL: a release file or its metadata requires review.")
             return 1
     try:
         check_research_report(root)
+        check_sorting_report(root)
     except (OSError, ValueError):
-        print('FAIL: the synthetic research report requires review.')
+        print('FAIL: a synthetic numeric or readable report requires review.')
         return 1
-    print(f"PASS: {len(allowed)} allowlisted files; preview metadata and invented research report checked.")
+    print(f"PASS: {len(allowed)} allowlisted files; PNG/SVG structure and both synthetic reports checked.")
     print("Manual content, staged-blob, history, and permission review is still required.")
     return 0
 

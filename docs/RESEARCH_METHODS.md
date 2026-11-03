@@ -1,5 +1,11 @@
 # Continuous functions: definitions and interpretation
 
+This document describes the earlier `signal_demo/research.py` example. Its
+left-edge bins and signed linear RMS/L2 are retained for compatibility. The
+new [continuous and discrete sorting study](SORTING_METHODS.md) uses centred
+circular bins and circular RMSD; [its results](SORTING_RESULTS.md) must be
+interpreted under those explicit conventions.
+
 This independently written module compares general time- and amplitude-based
 progress coordinates. The cycle starts at an observed maximum, passes through
 an explicitly selected minimum, and ends at the next observed maximum. It accepts

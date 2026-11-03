@@ -4,6 +4,16 @@ All checks use independently invented inputs. Original professional code and cli
 
 Local verification on November 2, 2026: all 16 tests passed. A browser check confirmed initial rendering, the balanced and paused presets, keyboard slider changes and updated numerical results without console warnings or errors. The charts were visually reviewed. No online CI run or public release is claimed by this local record.
 
+The November 3, 2026 candidate adds centred bins, selected single/dual phase,
+continuous/discrete difference panels and separate pointwise/RMSD classifications.
+Its 21 automated Node tests passed locally. A desktop browser review of the
+updated interface confirmed all six charts, waveform bin tracks, integer bin
+axes and matching amplitude legend colours. Balanced dual-phase and paused
+presets, phase selection and reset updated the displayed scores and labels.
+No console warnings or errors were captured. The interactive 240-sample scores
+are explicitly distinguished from the saved 20,000-midpoint study. This review
+does not claim exhaustive responsive-browser testing or a new online CI result.
+
 ## Reproduce the checks
 
 With Node.js 22 or newer:
@@ -27,6 +37,9 @@ The test suite verifies:
 - Independent recomputation of RMS and sampled bin mismatch.
 - Deterministic numeric CSV output, invalid-input rejection and resource limits.
 - RMS sensitivity to an eightfold denser grid for one fixed example.
+- Centred half-bin thresholds, periodic joins and signed antipodal ties.
+- Small-distance bin mismatch, phase selection and separate RMSD/pointwise rules.
+- Known half-cosine RMSD, ten-bin assignments and exported regime/bin fields.
 - Offline policy, local assets, unique control IDs and explicit control labels.
 - Rejection of extra publication files and credential-like test sentinels.
 

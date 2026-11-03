@@ -1,0 +1,1224 @@
+{
+  "schema_version": 1,
+  "synthetic_only": true,
+  "bins": 10,
+  "sampling": "Uniform left-open/right-open midpoint grid on normalized cycle time",
+  "bin_convention": "Centred circular bins floor(N*(state mod 1)+1/2) mod N",
+  "signed_difference": "Phase minus amplitude; antipodal ties retain unwrapped sign",
+  "regime_thresholds_bw": [
+    1,
+    2
+  ],
+  "aggregate_rms_thresholds_bw": [
+    0.5,
+    1.5
+  ],
+  "interpretation": "Empirical numerical descriptions of synthetic signals; no clinical or image-quality validation",
+  "results": [
+    {
+      "case": "linear_symmetric",
+      "label": "Linear symmetric",
+      "family": "linear",
+      "method": "single",
+      "r": 0.5,
+      "pause_fraction_of_expiration": 0.0,
+      "epsilon": null,
+      "samples": 20000,
+      "bins": 10,
+      "valid_fraction": 1.0,
+      "maximum_circular_distance": 0.0,
+      "circular_rmsd": 0.0,
+      "midpoint_circular_rmsd": 0.0,
+      "rms_method": "Exact integration of piecewise-linear difference with circular splits",
+      "bin_mismatch_fraction": 0.0,
+      "pointwise_regime_fractions": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "phase_bin_occupancy": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "amplitude_bin_occupancy": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "signed_circular_bin_offset_counts": {
+        "0": 20000
+      },
+      "classification": {
+        "index": 0,
+        "label": "Similar Processing",
+        "rms_in_bin_widths": 0.0,
+        "status": "User-defined descriptive category; not a clinical or bin-agreement guarantee"
+      },
+      "constructed_family_rms_limit": null
+    },
+    {
+      "case": "linear_symmetric",
+      "label": "Linear symmetric",
+      "family": "linear",
+      "method": "dual",
+      "r": 0.5,
+      "pause_fraction_of_expiration": 0.0,
+      "epsilon": null,
+      "samples": 20000,
+      "bins": 10,
+      "valid_fraction": 1.0,
+      "maximum_circular_distance": 0.0,
+      "circular_rmsd": 0.0,
+      "midpoint_circular_rmsd": 0.0,
+      "rms_method": "Exact integration of piecewise-linear difference with circular splits",
+      "bin_mismatch_fraction": 0.0,
+      "pointwise_regime_fractions": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "phase_bin_occupancy": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "amplitude_bin_occupancy": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "signed_circular_bin_offset_counts": {
+        "0": 20000
+      },
+      "classification": {
+        "index": 0,
+        "label": "Similar Processing",
+        "rms_in_bin_widths": 0.0,
+        "status": "User-defined descriptive category; not a clinical or bin-agreement guarantee"
+      },
+      "constructed_family_rms_limit": null
+    },
+    {
+      "case": "linear_asymmetric",
+      "label": "Linear asymmetric",
+      "family": "linear",
+      "method": "single",
+      "r": 0.1,
+      "pause_fraction_of_expiration": 0.0,
+      "epsilon": null,
+      "samples": 20000,
+      "bins": 10,
+      "valid_fraction": 1.0,
+      "maximum_circular_distance": 0.4,
+      "circular_rmsd": 0.23094010767585035,
+      "midpoint_circular_rmsd": 0.23094010687397615,
+      "rms_method": "Exact integration of piecewise-linear difference with circular splits",
+      "bin_mismatch_fraction": 0.88,
+      "pointwise_regime_fractions": [
+        0.25,
+        0.25,
+        0.5
+      ],
+      "phase_bin_occupancy": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "amplitude_bin_occupancy": [
+        0.1,
+        0.02,
+        0.02,
+        0.02,
+        0.02,
+        0.1,
+        0.18,
+        0.18,
+        0.18,
+        0.18
+      ],
+      "signed_circular_bin_offset_counts": {
+        "0": 2400,
+        "-1": 4800,
+        "-2": 5600,
+        "-3": 4800,
+        "-4": 2400
+      },
+      "classification": {
+        "index": 2,
+        "label": "Mostly different processes",
+        "rms_in_bin_widths": 2.3094010767585034,
+        "status": "User-defined descriptive category; not a clinical or bin-agreement guarantee"
+      },
+      "constructed_family_rms_limit": null
+    },
+    {
+      "case": "linear_asymmetric",
+      "label": "Linear asymmetric",
+      "family": "linear",
+      "method": "dual",
+      "r": 0.1,
+      "pause_fraction_of_expiration": 0.0,
+      "epsilon": null,
+      "samples": 20000,
+      "bins": 10,
+      "valid_fraction": 1.0,
+      "maximum_circular_distance": 0.0,
+      "circular_rmsd": 0.0,
+      "midpoint_circular_rmsd": 0.0,
+      "rms_method": "Exact integration of piecewise-linear difference with circular splits",
+      "bin_mismatch_fraction": 0.0,
+      "pointwise_regime_fractions": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "phase_bin_occupancy": [
+        0.1,
+        0.02,
+        0.02,
+        0.02,
+        0.02,
+        0.1,
+        0.18,
+        0.18,
+        0.18,
+        0.18
+      ],
+      "amplitude_bin_occupancy": [
+        0.1,
+        0.02,
+        0.02,
+        0.02,
+        0.02,
+        0.1,
+        0.18,
+        0.18,
+        0.18,
+        0.18
+      ],
+      "signed_circular_bin_offset_counts": {
+        "0": 20000
+      },
+      "classification": {
+        "index": 0,
+        "label": "Similar Processing",
+        "rms_in_bin_widths": 0.0,
+        "status": "User-defined descriptive category; not a clinical or bin-agreement guarantee"
+      },
+      "constructed_family_rms_limit": null
+    },
+    {
+      "case": "sine_symmetric",
+      "label": "Sinusoidal symmetric",
+      "family": "sine",
+      "method": "single",
+      "r": 0.5,
+      "pause_fraction_of_expiration": 0.0,
+      "epsilon": null,
+      "samples": 20000,
+      "bins": 10,
+      "valid_fraction": 1.0,
+      "maximum_circular_distance": 0.05262841558825471,
+      "circular_rmsd": 0.03771924591192731,
+      "midpoint_circular_rmsd": 0.03771924591192731,
+      "rms_method": "Uniform midpoint quadrature",
+      "bin_mismatch_fraction": 0.3476,
+      "pointwise_regime_fractions": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "phase_bin_occupancy": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "amplitude_bin_occupancy": [
+        0.2048,
+        0.0821,
+        0.0655,
+        0.0655,
+        0.0821,
+        0.2048,
+        0.0821,
+        0.0655,
+        0.0655,
+        0.0821
+      ],
+      "signed_circular_bin_offset_counts": {
+        "0": 13048,
+        "1": 3476,
+        "-1": 3476
+      },
+      "classification": {
+        "index": 0,
+        "label": "Similar Processing",
+        "rms_in_bin_widths": 0.3771924591192731,
+        "status": "User-defined descriptive category; not a clinical or bin-agreement guarantee"
+      },
+      "constructed_family_rms_limit": null
+    },
+    {
+      "case": "sine_symmetric",
+      "label": "Sinusoidal symmetric",
+      "family": "sine",
+      "method": "dual",
+      "r": 0.5,
+      "pause_fraction_of_expiration": 0.0,
+      "epsilon": null,
+      "samples": 20000,
+      "bins": 10,
+      "valid_fraction": 1.0,
+      "maximum_circular_distance": 0.05262841558825471,
+      "circular_rmsd": 0.03771924591192731,
+      "midpoint_circular_rmsd": 0.03771924591192731,
+      "rms_method": "Uniform midpoint quadrature",
+      "bin_mismatch_fraction": 0.3476,
+      "pointwise_regime_fractions": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "phase_bin_occupancy": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "amplitude_bin_occupancy": [
+        0.2048,
+        0.0821,
+        0.0655,
+        0.0655,
+        0.0821,
+        0.2048,
+        0.0821,
+        0.0655,
+        0.0655,
+        0.0821
+      ],
+      "signed_circular_bin_offset_counts": {
+        "0": 13048,
+        "1": 3476,
+        "-1": 3476
+      },
+      "classification": {
+        "index": 0,
+        "label": "Similar Processing",
+        "rms_in_bin_widths": 0.3771924591192731,
+        "status": "User-defined descriptive category; not a clinical or bin-agreement guarantee"
+      },
+      "constructed_family_rms_limit": null
+    },
+    {
+      "case": "sine_asymmetric",
+      "label": "Sinusoidal asymmetric",
+      "family": "sine",
+      "method": "single",
+      "r": 0.1,
+      "pause_fraction_of_expiration": 0.0,
+      "epsilon": null,
+      "samples": 20000,
+      "bins": 10,
+      "valid_fraction": 1.0,
+      "maximum_circular_distance": 0.40202917467939747,
+      "circular_rmsd": 0.22135935206495413,
+      "midpoint_circular_rmsd": 0.22135935206495413,
+      "rms_method": "Uniform midpoint quadrature",
+      "bin_mismatch_fraction": 0.9295,
+      "pointwise_regime_fractions": [
+        0.15725,
+        0.34275,
+        0.5
+      ],
+      "phase_bin_occupancy": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "amplitude_bin_occupancy": [
+        0.20485,
+        0.0164,
+        0.0131,
+        0.0131,
+        0.0164,
+        0.20485,
+        0.14775,
+        0.1179,
+        0.1179,
+        0.14775
+      ],
+      "signed_circular_bin_offset_counts": {
+        "0": 1410,
+        "-1": 3999,
+        "-2": 9182,
+        "-3": 3999,
+        "-4": 1410
+      },
+      "classification": {
+        "index": 2,
+        "label": "Mostly different processes",
+        "rms_in_bin_widths": 2.213593520649541,
+        "status": "User-defined descriptive category; not a clinical or bin-agreement guarantee"
+      },
+      "constructed_family_rms_limit": null
+    },
+    {
+      "case": "sine_asymmetric",
+      "label": "Sinusoidal asymmetric",
+      "family": "sine",
+      "method": "dual",
+      "r": 0.1,
+      "pause_fraction_of_expiration": 0.0,
+      "epsilon": null,
+      "samples": 20000,
+      "bins": 10,
+      "valid_fraction": 1.0,
+      "maximum_circular_distance": 0.05262841558825471,
+      "circular_rmsd": 0.0377192459119288,
+      "midpoint_circular_rmsd": 0.0377192459119288,
+      "rms_method": "Uniform midpoint quadrature",
+      "bin_mismatch_fraction": 0.3477,
+      "pointwise_regime_fractions": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "phase_bin_occupancy": [
+        0.1,
+        0.02,
+        0.02,
+        0.02,
+        0.02,
+        0.1,
+        0.18,
+        0.18,
+        0.18,
+        0.18
+      ],
+      "amplitude_bin_occupancy": [
+        0.20485,
+        0.0164,
+        0.0131,
+        0.0131,
+        0.0164,
+        0.20485,
+        0.14775,
+        0.1179,
+        0.1179,
+        0.14775
+      ],
+      "signed_circular_bin_offset_counts": {
+        "0": 13046,
+        "1": 3477,
+        "-1": 3477
+      },
+      "classification": {
+        "index": 0,
+        "label": "Similar Processing",
+        "rms_in_bin_widths": 0.377192459119288,
+        "status": "User-defined descriptive category; not a clinical or bin-agreement guarantee"
+      },
+      "constructed_family_rms_limit": null
+    },
+    {
+      "case": "extreme_midpoint",
+      "label": "Monotone with midpoint",
+      "family": "piecewise",
+      "method": "single",
+      "r": 0.5,
+      "pause_fraction_of_expiration": 0.0,
+      "epsilon": 0.01,
+      "samples": 20000,
+      "bins": 10,
+      "valid_fraction": 1.0,
+      "maximum_circular_distance": 0.49,
+      "circular_rmsd": 0.2829016319029166,
+      "midpoint_circular_rmsd": 0.2829016138607198,
+      "rms_method": "Exact integration of piecewise-linear difference with circular splits",
+      "bin_mismatch_fraction": 0.898,
+      "pointwise_regime_fractions": [
+        0.2041,
+        0.2041,
+        0.5918
+      ],
+      "phase_bin_occupancy": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "amplitude_bin_occupancy": [
+        0.002,
+        0.002,
+        0.002,
+        0.002,
+        0.002,
+        0.982,
+        0.002,
+        0.002,
+        0.002,
+        0.002
+      ],
+      "signed_circular_bin_offset_counts": {
+        "0": 2040,
+        "-1": 2040,
+        "-2": 2040,
+        "-3": 2040,
+        "-4": 2040,
+        "-5": 1640,
+        "1": 2040,
+        "2": 2040,
+        "3": 2040,
+        "4": 2040
+      },
+      "classification": {
+        "index": 2,
+        "label": "Mostly different processes",
+        "rms_in_bin_widths": 2.829016319029166,
+        "status": "User-defined descriptive category; not a clinical or bin-agreement guarantee"
+      },
+      "constructed_family_rms_limit": 0.28867513459481287
+    },
+    {
+      "case": "extreme_midpoint",
+      "label": "Monotone with midpoint",
+      "family": "piecewise",
+      "method": "dual",
+      "r": 0.5,
+      "pause_fraction_of_expiration": 0.0,
+      "epsilon": 0.01,
+      "samples": 20000,
+      "bins": 10,
+      "valid_fraction": 1.0,
+      "maximum_circular_distance": 0.49,
+      "circular_rmsd": 0.2829016319029166,
+      "midpoint_circular_rmsd": 0.2829016138607198,
+      "rms_method": "Exact integration of piecewise-linear difference with circular splits",
+      "bin_mismatch_fraction": 0.898,
+      "pointwise_regime_fractions": [
+        0.2041,
+        0.2041,
+        0.5918
+      ],
+      "phase_bin_occupancy": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "amplitude_bin_occupancy": [
+        0.002,
+        0.002,
+        0.002,
+        0.002,
+        0.002,
+        0.982,
+        0.002,
+        0.002,
+        0.002,
+        0.002
+      ],
+      "signed_circular_bin_offset_counts": {
+        "0": 2040,
+        "-1": 2040,
+        "-2": 2040,
+        "-3": 2040,
+        "-4": 2040,
+        "-5": 1640,
+        "1": 2040,
+        "2": 2040,
+        "3": 2040,
+        "4": 2040
+      },
+      "classification": {
+        "index": 2,
+        "label": "Mostly different processes",
+        "rms_in_bin_widths": 2.829016319029166,
+        "status": "User-defined descriptive category; not a clinical or bin-agreement guarantee"
+      },
+      "constructed_family_rms_limit": 0.28867513459481287
+    },
+    {
+      "case": "extreme_monotone_single",
+      "label": "Monotone without midpoint",
+      "family": "piecewise",
+      "method": "single",
+      "r": 0.01,
+      "pause_fraction_of_expiration": 0.0,
+      "epsilon": 0.01,
+      "samples": 20000,
+      "bins": 10,
+      "valid_fraction": 1.0,
+      "maximum_circular_distance": 0.49,
+      "circular_rmsd": 0.39807788182716203,
+      "midpoint_circular_rmsd": 0.3980778754187032,
+      "rms_method": "Exact integration of piecewise-linear difference with circular splits",
+      "bin_mismatch_fraction": 0.949,
+      "pointwise_regime_fractions": [
+        0.1041,
+        0.1041,
+        0.7918
+      ],
+      "phase_bin_occupancy": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "amplitude_bin_occupancy": [
+        0.541,
+        0.002,
+        0.002,
+        0.002,
+        0.002,
+        0.051,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "signed_circular_bin_offset_counts": {
+        "0": 1020,
+        "-1": 2040,
+        "-2": 2040,
+        "-3": 2040,
+        "-4": 3040,
+        "-5": 8020,
+        "5": 1800
+      },
+      "classification": {
+        "index": 2,
+        "label": "Mostly different processes",
+        "rms_in_bin_widths": 3.98077881827162,
+        "status": "User-defined descriptive category; not a clinical or bin-agreement guarantee"
+      },
+      "constructed_family_rms_limit": 0.408248290463863
+    },
+    {
+      "case": "extreme_nonmonotone_single",
+      "label": "Fixed branches nonmonotone",
+      "family": "piecewise",
+      "method": "single",
+      "r": 0.01,
+      "pause_fraction_of_expiration": 0.0,
+      "epsilon": 0.01,
+      "samples": 20000,
+      "bins": 10,
+      "valid_fraction": 1.0,
+      "maximum_circular_distance": 0.5,
+      "circular_rmsd": 0.4359464798955639,
+      "midpoint_circular_rmsd": 0.4359464655493844,
+      "rms_method": "Exact integration of piecewise-linear difference with circular splits",
+      "bin_mismatch_fraction": 0.998,
+      "pointwise_regime_fractions": [
+        0.01215,
+        0.0121,
+        0.97575
+      ],
+      "phase_bin_occupancy": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "amplitude_bin_occupancy": [
+        0.29365,
+        0.002,
+        0.002,
+        0.002,
+        0.002,
+        0.27345,
+        0.10625,
+        0.1062,
+        0.1062,
+        0.10625
+      ],
+      "signed_circular_bin_offset_counts": {
+        "0": 40,
+        "-1": 123,
+        "-2": 124,
+        "-3": 1873,
+        "-4": 2040,
+        "-5": 9636,
+        "5": 2000,
+        "1": 124,
+        "2": 125,
+        "3": 1874,
+        "4": 2041
+      },
+      "classification": {
+        "index": 2,
+        "label": "Mostly different processes",
+        "rms_in_bin_widths": 4.3594647989556385,
+        "status": "User-defined descriptive category; not a clinical or bin-agreement guarantee"
+      },
+      "constructed_family_rms_limit": 0.44487826050130463
+    },
+    {
+      "case": "extreme_monotone_dual",
+      "label": "Monotone without midpoint",
+      "family": "piecewise",
+      "method": "dual",
+      "r": 0.35,
+      "pause_fraction_of_expiration": 0.0,
+      "epsilon": 0.01,
+      "samples": 20000,
+      "bins": 10,
+      "valid_fraction": 1.0,
+      "maximum_circular_distance": 0.49230769230769234,
+      "circular_rmsd": 0.28290745843231146,
+      "midpoint_circular_rmsd": 0.2829074404269016,
+      "rms_method": "Exact integration of piecewise-linear difference with circular splits",
+      "bin_mismatch_fraction": 0.898,
+      "pointwise_regime_fractions": [
+        0.2041,
+        0.20405,
+        0.59185
+      ],
+      "phase_bin_occupancy": [
+        0.1,
+        0.07,
+        0.07,
+        0.07,
+        0.07,
+        0.1,
+        0.13,
+        0.13,
+        0.13,
+        0.13
+      ],
+      "amplitude_bin_occupancy": [
+        0.002,
+        0.002,
+        0.002,
+        0.002,
+        0.002,
+        0.982,
+        0.002,
+        0.002,
+        0.002,
+        0.002
+      ],
+      "signed_circular_bin_offset_counts": {
+        "0": 2040,
+        "-1": 1440,
+        "-2": 1440,
+        "-3": 1440,
+        "-4": 1440,
+        "-5": 1640,
+        "1": 2640,
+        "2": 2640,
+        "3": 2640,
+        "4": 2640
+      },
+      "classification": {
+        "index": 2,
+        "label": "Mostly different processes",
+        "rms_in_bin_widths": 2.8290745843231146,
+        "status": "User-defined descriptive category; not a clinical or bin-agreement guarantee"
+      },
+      "constructed_family_rms_limit": 0.28867513459481287
+    },
+    {
+      "case": "extreme_nonmonotone_dual",
+      "label": "Fixed branches nonmonotone",
+      "family": "piecewise",
+      "method": "dual",
+      "r": 0.35,
+      "pause_fraction_of_expiration": 0.0,
+      "epsilon": 0.01,
+      "samples": 20000,
+      "bins": 10,
+      "valid_fraction": 1.0,
+      "maximum_circular_distance": 0.49,
+      "circular_rmsd": 0.3715499069214435,
+      "midpoint_circular_rmsd": 0.3715498320445147,
+      "rms_method": "Exact integration of piecewise-linear difference with circular splits",
+      "bin_mismatch_fraction": 0.998,
+      "pointwise_regime_fractions": [
+        0.0121,
+        0.0121,
+        0.9758
+      ],
+      "phase_bin_occupancy": [
+        0.1,
+        0.07,
+        0.07,
+        0.07,
+        0.07,
+        0.1,
+        0.13,
+        0.13,
+        0.13,
+        0.13
+      ],
+      "amplitude_bin_occupancy": [
+        0.48375,
+        0.00285,
+        0.00285,
+        0.00285,
+        0.00285,
+        0.48375,
+        0.00525,
+        0.0053,
+        0.0053,
+        0.00525
+      ],
+      "signed_circular_bin_offset_counts": {
+        "0": 40,
+        "-1": 122,
+        "-2": 122,
+        "-3": 3877,
+        "-4": 4041,
+        "-5": 1818,
+        "1": 122,
+        "2": 122,
+        "3": 3877,
+        "4": 4041,
+        "5": 1818
+      },
+      "classification": {
+        "index": 2,
+        "label": "Mostly different processes",
+        "rms_in_bin_widths": 3.7154990692144354,
+        "status": "User-defined descriptive category; not a clinical or bin-agreement guarantee"
+      },
+      "constructed_family_rms_limit": 0.3818813079129867
+    },
+    {
+      "case": "dashboard_default",
+      "label": "Dashboard default",
+      "family": "sine",
+      "method": "single",
+      "r": 0.65,
+      "pause_fraction_of_expiration": 0.15,
+      "epsilon": null,
+      "samples": 20000,
+      "bins": 10,
+      "valid_fraction": 1.0,
+      "maximum_circular_distance": 0.17526141259936778,
+      "circular_rmsd": 0.07691554636694457,
+      "midpoint_circular_rmsd": 0.07691554636694457,
+      "rms_method": "Uniform midpoint quadrature",
+      "bin_mismatch_fraction": 0.4729,
+      "pointwise_regime_fractions": [
+        0.7953,
+        0.2047,
+        0.0
+      ],
+      "phase_bin_occupancy": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "amplitude_bin_occupancy": [
+        0.18485,
+        0.09075,
+        0.07235,
+        0.07235,
+        0.09075,
+        0.28235,
+        0.05745,
+        0.04585,
+        0.04585,
+        0.05745
+      ],
+      "signed_circular_bin_offset_counts": {
+        "0": 10542,
+        "1": 6766,
+        "-1": 675,
+        "2": 2017
+      },
+      "classification": {
+        "index": 1,
+        "label": "Some possible differences",
+        "rms_in_bin_widths": 0.7691554636694458,
+        "status": "User-defined descriptive category; not a clinical or bin-agreement guarantee"
+      },
+      "constructed_family_rms_limit": null
+    },
+    {
+      "case": "dashboard_default",
+      "label": "Dashboard default",
+      "family": "sine",
+      "method": "dual",
+      "r": 0.65,
+      "pause_fraction_of_expiration": 0.15,
+      "epsilon": null,
+      "samples": 20000,
+      "bins": 10,
+      "valid_fraction": 1.0,
+      "maximum_circular_distance": 0.112586145579128,
+      "circular_rmsd": 0.056992506190794635,
+      "midpoint_circular_rmsd": 0.056992506190794635,
+      "rms_method": "Uniform midpoint quadrature",
+      "bin_mismatch_fraction": 0.4639,
+      "pointwise_regime_fractions": [
+        0.8772,
+        0.1228,
+        0.0
+      ],
+      "phase_bin_occupancy": [
+        0.1,
+        0.13,
+        0.13,
+        0.13,
+        0.13,
+        0.1,
+        0.07,
+        0.07,
+        0.07,
+        0.07
+      ],
+      "amplitude_bin_occupancy": [
+        0.18485,
+        0.09075,
+        0.07235,
+        0.07235,
+        0.09075,
+        0.28235,
+        0.05745,
+        0.04585,
+        0.04585,
+        0.05745
+      ],
+      "signed_circular_bin_offset_counts": {
+        "0": 10722,
+        "1": 2358,
+        "-1": 6607,
+        "-2": 313
+      },
+      "classification": {
+        "index": 1,
+        "label": "Some possible differences",
+        "rms_in_bin_widths": 0.5699250619079463,
+        "status": "User-defined descriptive category; not a clinical or bin-agreement guarantee"
+      },
+      "constructed_family_rms_limit": null
+    },
+    {
+      "case": "dashboard_pause",
+      "label": "Dashboard pause",
+      "family": "sine",
+      "method": "single",
+      "r": 0.65,
+      "pause_fraction_of_expiration": 0.3,
+      "epsilon": null,
+      "samples": 20000,
+      "bins": 10,
+      "valid_fraction": 1.0,
+      "maximum_circular_distance": 0.17526141259936778,
+      "circular_rmsd": 0.08090408082162465,
+      "midpoint_circular_rmsd": 0.08090408082162465,
+      "rms_method": "Uniform midpoint quadrature",
+      "bin_mismatch_fraction": 0.55225,
+      "pointwise_regime_fractions": [
+        0.7953,
+        0.2047,
+        0.0
+      ],
+      "phase_bin_occupancy": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "amplitude_bin_occupancy": [
+        0.1649,
+        0.0747,
+        0.0596,
+        0.0596,
+        0.0747,
+        0.3599,
+        0.05745,
+        0.04585,
+        0.04585,
+        0.05745
+      ],
+      "signed_circular_bin_offset_counts": {
+        "0": 8955,
+        "1": 5122,
+        "-1": 3906,
+        "2": 2017
+      },
+      "classification": {
+        "index": 1,
+        "label": "Some possible differences",
+        "rms_in_bin_widths": 0.8090408082162465,
+        "status": "User-defined descriptive category; not a clinical or bin-agreement guarantee"
+      },
+      "constructed_family_rms_limit": null
+    },
+    {
+      "case": "dashboard_pause",
+      "label": "Dashboard pause",
+      "family": "sine",
+      "method": "dual",
+      "r": 0.65,
+      "pause_fraction_of_expiration": 0.3,
+      "epsilon": null,
+      "samples": 20000,
+      "bins": 10,
+      "valid_fraction": 1.0,
+      "maximum_circular_distance": 0.17526141259936778,
+      "circular_rmsd": 0.08513505565207552,
+      "midpoint_circular_rmsd": 0.08513505565207552,
+      "rms_method": "Uniform midpoint quadrature",
+      "bin_mismatch_fraction": 0.5345,
+      "pointwise_regime_fractions": [
+        0.7339,
+        0.2661,
+        0.0
+      ],
+      "phase_bin_occupancy": [
+        0.1,
+        0.13,
+        0.13,
+        0.13,
+        0.13,
+        0.1,
+        0.07,
+        0.07,
+        0.07,
+        0.07
+      ],
+      "amplitude_bin_occupancy": [
+        0.1649,
+        0.0747,
+        0.0596,
+        0.0596,
+        0.0747,
+        0.3599,
+        0.05745,
+        0.04585,
+        0.04585,
+        0.05745
+      ],
+      "signed_circular_bin_offset_counts": {
+        "0": 9310,
+        "1": 1781,
+        "-1": 6287,
+        "-2": 2622
+      },
+      "classification": {
+        "index": 1,
+        "label": "Some possible differences",
+        "rms_in_bin_widths": 0.8513505565207552,
+        "status": "User-defined descriptive category; not a clinical or bin-agreement guarantee"
+      },
+      "constructed_family_rms_limit": null
+    },
+    {
+      "case": "dashboard_asymmetric",
+      "label": "Dashboard asymmetric",
+      "family": "sine",
+      "method": "single",
+      "r": 0.7,
+      "pause_fraction_of_expiration": 0.0,
+      "epsilon": null,
+      "samples": 20000,
+      "bins": 10,
+      "valid_fraction": 1.0,
+      "maximum_circular_distance": 0.21846995162654614,
+      "circular_rmsd": 0.11539950962104388,
+      "midpoint_circular_rmsd": 0.11539950962104388,
+      "rms_method": "Uniform midpoint quadrature",
+      "bin_mismatch_fraction": 0.83585,
+      "pointwise_regime_fractions": [
+        0.5,
+        0.42295,
+        0.07705
+      ],
+      "phase_bin_occupancy": [
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      ],
+      "amplitude_bin_occupancy": [
+        0.20485,
+        0.1149,
+        0.0917,
+        0.0917,
+        0.1149,
+        0.20485,
+        0.04925,
+        0.0393,
+        0.0393,
+        0.04925
+      ],
+      "signed_circular_bin_offset_counts": {
+        "0": 3283,
+        "1": 12976,
+        "2": 3283,
+        "3": 229,
+        "-1": 229
+      },
+      "classification": {
+        "index": 1,
+        "label": "Some possible differences",
+        "rms_in_bin_widths": 1.1539950962104388,
+        "status": "User-defined descriptive category; not a clinical or bin-agreement guarantee"
+      },
+      "constructed_family_rms_limit": null
+    },
+    {
+      "case": "dashboard_asymmetric",
+      "label": "Dashboard asymmetric",
+      "family": "sine",
+      "method": "dual",
+      "r": 0.7,
+      "pause_fraction_of_expiration": 0.0,
+      "epsilon": null,
+      "samples": 20000,
+      "bins": 10,
+      "valid_fraction": 1.0,
+      "maximum_circular_distance": 0.052628415588254665,
+      "circular_rmsd": 0.037719245911927365,
+      "midpoint_circular_rmsd": 0.037719245911927365,
+      "rms_method": "Uniform midpoint quadrature",
+      "bin_mismatch_fraction": 0.3477,
+      "pointwise_regime_fractions": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "phase_bin_occupancy": [
+        0.1,
+        0.14,
+        0.14,
+        0.14,
+        0.14,
+        0.1,
+        0.06,
+        0.06,
+        0.06,
+        0.06
+      ],
+      "amplitude_bin_occupancy": [
+        0.20485,
+        0.1149,
+        0.0917,
+        0.0917,
+        0.1149,
+        0.20485,
+        0.04925,
+        0.0393,
+        0.0393,
+        0.04925
+      ],
+      "signed_circular_bin_offset_counts": {
+        "0": 13046,
+        "1": 3477,
+        "-1": 3477
+      },
+      "classification": {
+        "index": 0,
+        "label": "Similar Processing",
+        "rms_in_bin_widths": 0.3771924591192737,
+        "status": "User-defined descriptive category; not a clinical or bin-agreement guarantee"
+      },
+      "constructed_family_rms_limit": null
+    }
+  ]
+}

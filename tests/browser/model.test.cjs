@@ -83,7 +83,7 @@ test('reported RMS and bin mismatch equal independent calculations', () => {
   for (const point of result.points) {
     const distance = Math.abs(point.uniform - point.amplitudeState);
     sum += Math.min(distance, 1 - distance) ** 2;
-    if (Math.floor(point.uniform * 10) !== Math.floor(point.amplitudeState * 10)) mismatch++;
+    if (Math.floor(point.uniform * 10 + 0.5) % 10 !== Math.floor(point.amplitudeState * 10 + 0.5) % 10) mismatch++;
   }
   near(result.comparison.rmsDistance, Math.sqrt(sum / result.points.length));
   near(result.comparison.binMismatch, mismatch / result.points.length);
@@ -95,7 +95,7 @@ test('deterministic output and CSV contain only declared synthetic numeric field
   assert.match(lines[0], /Entirely invented/); assert.equal(lines.length, result.points.length + 2);
   for (const line of lines.slice(2)) {
     const values = line.split(',').map(Number);
-    assert.equal(values.length, 6); assert.ok(values.every(Number.isFinite));
+    assert.equal(values.length, 12); assert.ok(values.every(Number.isFinite));
   }
 });
 
@@ -123,4 +123,54 @@ test('invalid values and resource bounds are rejected', () => {
   assert.throws(() => lab.pointAt(-1), RangeError);
   assert.throws(() => lab.pointAt(Infinity), RangeError);
   assert.throws(() => lab.circularDistance(NaN, 0), RangeError);
+});
+
+test('centred circular bins respect half-bin ties, wrap and thresholds', () => {
+  for (const [state, expected] of [[0, 0], [0.049, 0], [0.05, 1], [0.149, 1], [0.15, 2],
+    [0.949, 9], [0.95, 0], [0.999, 0], [1, 0], [-0.01, 0]]) {
+    assert.equal(lab.bin(state, 10), expected);
+  }
+  assert.throws(() => lab.bin(NaN, 10), RangeError);
+  assert.throws(() => lab.bin(0.5, 0), RangeError);
+});
+
+test('signed continuous and integer differences retain orientation and antipodal ties', () => {
+  near(lab.signedCircular(0.99, 0.01), -0.02);
+  near(lab.signedCircular(0.01, 0.99), 0.02);
+  near(lab.signedCircular(0.5, 0), 0.5);
+  near(lab.signedCircular(0, 0.5), -0.5);
+  assert.equal(lab.circularBinDifference(9, 1, 10), -2);
+  assert.equal(lab.circularBinDifference(1, 9, 10), 2);
+  assert.equal(lab.circularBinDifference(5, 0, 10), 5);
+  assert.equal(lab.circularBinDifference(0, 5, 10), -5);
+});
+
+test('pointwise regimes and aggregate RMSD labels have separate thresholds', () => {
+  assert.deepEqual([0.1, 0.10001, 0.2, 0.20001].map(x => lab.regime(x, 10)), [0, 1, 1, 2]);
+  assert.deepEqual([0.05, 0.05001, 0.15, 0.15001].map(x => lab.classification(x, 10)),
+    ['Similar Processing', 'Some possible differences', 'Some possible differences', 'Mostly different processes']);
+  near(lab.circularDistance(0.049, 0.051), 0.002);
+  assert.notEqual(lab.bin(0.049, 10), lab.bin(0.051, 10));
+});
+
+test('selected phase controls every pointwise classification and exact bin difference', () => {
+  for (const phaseMethod of ['single', 'dual']) {
+    const result = lab.simulate({ phaseMethod, samples: 1920 });
+    const selected = phaseMethod === 'single' ? result.comparison : result.branchComparison;
+    assert.deepEqual(result.selectedComparison, selected);
+    near(result.selectedComparison.regimeFractions.reduce((a, b) => a + b), 1);
+    for (const point of result.points) {
+      assert.equal(point.selectedPhase, phaseMethod === 'single' ? point.uniform : point.branchState);
+      assert.equal(point.signedBinDifference, lab.circularBinDifference(point.phaseBin, point.amplitudeBin, 10));
+      assert.equal(point.regime, lab.regime(Math.abs(point.signedDifference), 10));
+    }
+  }
+  assert.throws(() => lab.simulate({ phaseMethod: 'other' }), RangeError);
+});
+
+test('balanced half-cosine RMSD agrees with analytic value but does not imply equal bins', () => {
+  const result = lab.simulate({ expiration: 0.5, pause: 0, samples: 1920 });
+  near(result.comparison.rmsDistance, Math.sqrt(5 / 96 - 1 / (2 * Math.PI ** 2)), 1e-8);
+  assert.equal(result.comparison.classification, 'Similar Processing');
+  assert.ok(result.comparison.binMismatch > 0.34 && result.comparison.binMismatch < 0.36);
 });
